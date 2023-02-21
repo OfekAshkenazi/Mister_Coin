@@ -1,0 +1,33 @@
+.contact-details {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  max-width: 280px;
+  margin: 15px auto;
+  padding: 20px 12px;
+  background-color: rgba(128, 128, 128, 0.528);
+  border-radius: 10px;
+  gap: 2px;
+
+  img {
+    background-color: whitesmoke;
+  }
+
+  .back-btn {
+    position: absolute;
+    left: 3.7px;
+    top: 3px;
+    padding: 5px;
+    background: none;
+    max-width: 40px;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
+      background: whitesmoke;
+      border-radius: 50%;
+      margin: 2px 1px;
+    }
+  }
+
+}

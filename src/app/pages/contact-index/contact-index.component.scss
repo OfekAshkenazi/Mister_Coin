@@ -1,0 +1,29 @@
+.contact-index {
+    padding: 3px;
+
+    .index-actions-btns {
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-inline: 5.3vw;
+
+        @media (max-width: 650px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .add-btn {
+            max-width: 60px;
+            cursor: pointer;
+            padding: 4px;
+
+            &:hover {
+                background: whitesmoke;
+                border-radius: 50%;
+                padding: 4px;
+            }
+        }
+
+    }
+}

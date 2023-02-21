@@ -1,0 +1,47 @@
+.contact-filter {
+
+    padding: 7px;
+    border-radius: 7px;
+
+    &:hover {
+        background-color: grey;
+    }
+
+    h2 {
+        padding: 0px 5px;
+        padding-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .contact-filter-form {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0px 5px;
+
+        input {
+            padding: 5px;
+            border: 2px solid rgb(244, 145, 39);
+            border-radius: 7px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        input::placeholder {
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        input.ng-touched {
+            border-left: 5px solid rgb(240, 51, 22);
+        }
+        
+        input.ng-valid {
+            border-left: 5px solid green;
+        }
+        
+    
+    }
+}

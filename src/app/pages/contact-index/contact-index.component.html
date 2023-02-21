@@ -1,0 +1,11 @@
+<section class="contact-index">
+
+    <div class="index-actions-btns flex container">
+        <contact-filter></contact-filter>
+        <img class="add-btn" src="../../../assets/imgs/plus.png" routerLink="contact/edit" alt="" title="Add contact">
+    </div>
+
+    <contact-list (remove)="onRemoveContact($event)" [contacts]="contacts$|async"></contact-list>
+</section>
+
+<router-outlet></router-outlet>

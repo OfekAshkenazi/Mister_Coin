@@ -1,0 +1,16 @@
+<section class="contact-filter">
+    <h2>Search contact</h2>
+    
+    <form class="contact-filter-form">
+
+        <input required [(ngModel)]="contactFilter.name" (ngModelChange)="onSetFilter()" type="text" name="name" id="name"
+            placeholder="Search By Name">
+
+        <input required [(ngModel)]="contactFilter.phone" (ngModelChange)="onSetFilter()" type="text" name="phone" id="phone"
+            placeholder="Search By Phone">
+
+        <input required [(ngModel)]="contactFilter.email" (ngModelChange)="onSetFilter()" type="text" name="email" id="email"
+            placeholder="Search By Email">
+
+    </form>
+</section>

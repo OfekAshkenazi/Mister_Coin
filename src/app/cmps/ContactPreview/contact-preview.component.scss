@@ -1,0 +1,59 @@
+.contact-preview {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    padding: 17px;
+    background-color: rgba(128, 128, 128, 0.528);
+    border-radius: 10px;
+    gap: 5.5px;
+    margin: 6px 0px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-0.5px);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+
+        .edit-btn {
+            opacity: 1;
+        }
+        .remove-btn {
+            opacity: 1;
+        }
+    }
+
+    .remove-btn {
+        position: absolute;
+        bottom: 3.7px;
+        left: 3px;
+        background: none;
+        max-width: 40px;
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        &:hover {
+            background: white;
+            padding: 3px;
+        }
+    }
+
+    .edit-btn {
+        position: absolute;
+        right: 3px;
+        bottom: 3.7px;
+        max-width: 40px;
+        background: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        border-radius: 20%;
+        
+        &:hover {
+            padding: 3px;
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        background-color: whitesmoke;
+    }
+}

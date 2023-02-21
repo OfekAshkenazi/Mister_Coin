@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+
+    .user-article {
+        display: grid;
+        gap: 2.5px;
+        background-color: gold;
+        padding: 10px;
+        border-radius: 7px;
+        margin: 0 auto;
+        font-size: 18px;
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .balance {
+            align-items: center;
+            justify-content: space-between;
+
+            img {
+                max-width: 50px;
+            }
+        }
+    }
+}
