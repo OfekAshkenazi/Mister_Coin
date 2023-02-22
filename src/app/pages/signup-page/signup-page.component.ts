@@ -17,7 +17,7 @@ export class SignupPageComponent {
   username!: string | ''
 
   onSaveUser() {
-    this.userService.signup(this.username)
+    // this.userService.signup(this.username)
     this.router.navigateByUrl('/')
   }
 

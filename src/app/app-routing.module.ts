@@ -9,7 +9,6 @@ import { ContactDetailsPageComponent } from './pages/ContactDetailsPage/contact-
 import { ContactResolverResolver } from './services/contact.resolver.resolver';
 import { ContactEditComponent } from './cmps/contact-edit/contact-edit.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
-import { TransferFoundComponent } from './cmps/transfer-found/transfer-found.component';
 
 
 const routes: Routes = [
@@ -17,12 +16,6 @@ const routes: Routes = [
     path: 'contact/:id',
     component: ContactDetailsPageComponent,
     resolve: { contact: ContactResolverResolver },
-    children: [
-      {
-        path: 'transaction',
-        component: TransferFoundComponent,
-      }
-    ]
   },
   {
     path: 'contact',

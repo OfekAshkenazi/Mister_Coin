@@ -1,104 +1,113 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
 import { Contact } from '../models/contact.model';
-import { User } from '../models/user.model';
+import { Move, User } from '../models/user.model';
+import { storageService } from './async-storage.service';
 
-const users = [
-    {
-        "_id": "5a566ca",
-        "fullname": "Ofek Ashkenazi",
-        "username": "ofeka25",
-        "password": 123,
-        "balance": 100,
-    },
-    {
-        "_id": "5a5ssss66ca",
-        "fullname": "Niv Ashkenazi",
-        "username": "niv",
-        "password": 123,
-        "balance": 100,
-    },
-]
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class UserService {
-    private _usersDb: User[] = users
 
-    private _users$ = new BehaviorSubject<User[]>([])
-    public users$ = this._users$.asObservable()
+    private USER_STORAGE_KEY = 'users'
+    private STORAGE_KEY_LOGGEDIN_USER = 'user'
 
     constructor() {
+        this._createUsers()
     }
 
-    public loadUser(): void {
-        let users = this._usersDb;
-        this._users$.next(this._sort(users))
-    }
-
-    public getUserById(id: string): Observable<User> {
-        //mock the server work
-        const user = this._usersDb.find(u => u._id === id)
-
-        //return an observable
-        return user ? of(user) : throwError(() => `User id ${id} not found!`)
-    }
-
-    public deleteUser(id: string) {
-        //mock the server work
-        this._usersDb = this._usersDb.filter(u => u._id !== id)
-
-        // change the observable data in the service - let all the subscribers know
-        this._users$.next(this._usersDb)
-    }
-
-    private _sort(users: User[]): User[] {
-        return users.sort((a, b) => {
-            if (a.fullname.toLocaleLowerCase() < b.fullname.toLocaleLowerCase()) {
-                return -1;
-            }
-            if (a.username.toLocaleLowerCase() > b.username.toLocaleLowerCase()) {
-                return 1;
-            }
-            return 0;
-        })
-    }
-
-    public getUser() {
-        let user = {
-            "_id": "5a566ca",
-            "fullname": "Ofek Ashkenazi",
-            "username": "ofeka25",
-            "password": 123,
-            "balance": 100,
-            "moves": []
+    private _createUsers() {
+        let users = storageService.oldGet(this.USER_STORAGE_KEY)
+        if (!users || !users.length) {
+            users = [
+                {
+                    _id: "5a566ca",
+                    fullname: "Ofek Ashkenazi",
+                    username: "ofeka25",
+                    password: 123,
+                    balance: 100,
+                    moves: []
+                },
+                {
+                    _id: "5a5ssss66ca",
+                    fullname: "Niv Ashkenazi",
+                    username: "niv",
+                    password: 123,
+                    balance: 100,
+                    moves: []
+                },
+            ]
+            storageService.oldSave(this.USER_STORAGE_KEY, users)
         }
-        return user
     }
 
-    public signup(name: string) {
-        const newUser = new User('Ofek Ashkenazi', name, 123, 100)
-        return this.saveLocalUser(newUser)
+
+    private getUsers() {
+        return storageService.oldGet(this.USER_STORAGE_KEY)
+    }
+
+
+    public login(user: User): void {
+        const users = this.getUsers()
+        const loggedInUser = users.find((currUser: { name: string; }) => currUser.name === user.username)
+        if (loggedInUser) this.saveLocalUser(loggedInUser)
+        else {
+            user = this.save(user)
+            this.saveLocalUser(user)
+        }
     }
 
     public saveLocalUser(user: User) {
-        let newUser = { _id: user._id ? user._id : 'x7895', fullname: user.fullname, balance: user.balance, moves: user.moves ? user.moves : [], username: user.username }
-        sessionStorage.setItem('loogedInUser', JSON.stringify(newUser))
+        sessionStorage.setItem(this.STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+        return user
+    }
+
+    private save(user: User): User {
+        let users: any = this.getUsers()
+        if (user._id) users = users.map((currUser: { _id: string | undefined; }) => currUser._id === user._id ? user : currUser)
+        else {
+            user._id = makeId()
+            users.push(user)
+        }
+        storageService.oldSave(this.USER_STORAGE_KEY, users)
         return user
     }
 
     public getLoggedinUser() {
         let user: null | string = sessionStorage.getItem('loogedInUser')
-        if (!user) return 
+        if (!user) return
         let loggedinUser = JSON.parse(user);
         return loggedinUser
     }
 
-    
-    public addMove(contact: Contact, amount: number) {
-
+    public getUser(): User {
+        return JSON.parse(sessionStorage.getItem(this.STORAGE_KEY_LOGGEDIN_USER) as string)
     }
 
+    public addMove(contact: Contact, amount: number) {
+        const user = this.getUser()
+        const move: Move = {
+            toId: contact._id,
+            to: contact.name,
+            at: Date.now(),
+            amount: amount
+        } as Move
+
+        user.moves.push(move)
+        user.balance -= amount
+        this.saveLocalUser(user)
+        this.save(user)
+    }
+
+}
+
+
+function makeId(length = 5) {
+    var text = ''
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
 }

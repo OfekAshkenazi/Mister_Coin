@@ -1,25 +1,44 @@
 :host {
-    display: flex;
+    height: 100%;
 
-    .user-article {
-        display: grid;
-        gap: 2.5px;
-        background-color: gold;
-        padding: 10px;
-        border-radius: 7px;
-        margin: 0 auto;
-        font-size: 18px;
+    .home-page {
+        position: relative;
+        padding: 0;
+        padding-inline: 0vw;
+        margin: 0;
 
-        h2 {
-            font-weight: bold;
+        .hero {
+            img {
+                min-height: 90vh;
+                object-fit: cover;
+            }
+
         }
 
-        .balance {
-            align-items: center;
-            justify-content: space-between;
+        .user-article {
+            position: absolute;
+            display: grid;
+            top: 7%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            gap: 2.5px;
+            background-color: gold;
+            padding: 10px;
+            border-radius: 7px;
+            margin: 0 auto;
+            font-size: 18px;
 
-            img {
-                max-width: 50px;
+            h2 {
+                font-weight: bold;
+            }
+
+            .balance {
+                align-items: center;
+                justify-content: space-between;
+
+                img {
+                    max-width: 50px;
+                }
             }
         }
     }

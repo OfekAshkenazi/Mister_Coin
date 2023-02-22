@@ -5,7 +5,7 @@ import { Contact } from 'src/app/models/contact.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-transfer-found',
+  selector: 'transfer-found',
   templateUrl: './transfer-found.component.html',
   styleUrls: ['./transfer-found.component.scss']
 })

@@ -11,14 +11,14 @@ const CONTACTS = [
         "name": "Ochoa Hyde",
         "email": "ochoahyde@renovize.com",
         "phone": "+1 (968) 593-3824",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a5664025f6ae9aa24a99fde",
         "name": "Hallie Mclean",
         "email": "halliemclean@renovize.com",
         "phone": "+1 (948) 464-2888",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a56640252d6acddd183d319",
@@ -32,7 +32,7 @@ const CONTACTS = [
         "name": "Rachel Lowe",
         "email": "rachellowe@renovize.com",
         "phone": "+1 (911) 475-2312",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a566402abce24c6bfe4699d",
@@ -46,7 +46,7 @@ const CONTACTS = [
         "name": "Shana Pope",
         "email": "shanapope@renovize.com",
         "phone": "+1 (970) 527-3082",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a566402f90ae30e97f990db",
@@ -74,7 +74,7 @@ const CONTACTS = [
         "name": "Pamela Nolan",
         "email": "pamelanolan@renovize.com",
         "phone": "+1 (986) 545-2166",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a5664029a8dd82a6178b15f",
@@ -88,7 +88,7 @@ const CONTACTS = [
         "name": "Ollie Christian",
         "email": "olliechristian@renovize.com",
         "phone": "+1 (977) 419-3550",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a5664026c53582bb9ebe9d1",
@@ -103,7 +103,7 @@ const CONTACTS = [
         "name": "Glenna Santana",
         "email": "glennasantana@renovize.com",
         "phone": "+1 (860) 467-2376",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a56640208fba3e8ecb97305",
@@ -124,7 +124,7 @@ const CONTACTS = [
         "name": "Grace James",
         "email": "gracejames@renovize.com",
         "phone": "+1 (959) 525-2529",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     },
     {
         "_id": "5a56640243427b8f8445231e",
@@ -138,7 +138,7 @@ const CONTACTS = [
         "name": "Lilly Conner",
         "email": "lillyconner@renovize.com",
         "phone": "+1 (842) 587-3812",
-        "imgUrl": `https://randomuser.me/api/portraits/men/${getRandomInt(0, 99)}.jpg`,
+        "imgUrl": `https://randomuser.me/api/portraits/women/${getRandomInt(0, 99)}.jpg`,
     }
 ];
 

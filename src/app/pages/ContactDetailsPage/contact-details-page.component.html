@@ -3,9 +3,10 @@
     <h2>{{ contact.name }}</h2>
     <p>{{ contact.email }}</p>
     <p>{{ contact.phone }}</p>
-    <img class="back-btn" src="../../../assets/imgs/back.png" (click)="onBack()" alt="" title="Back">
-    <button (click)="makeAtransaction()">click</button>
+    <img class="back-btn" src="assets/imgs/back.png" (click)="onBack()" alt="" title="Back">
+    <br><br>
+
+    <transfer-found ></transfer-found>
 </article>
 
-
-<router-outlet></router-outlet>
+<!-- (updateMoves)="updatemoves" [contact]="contact" -->
