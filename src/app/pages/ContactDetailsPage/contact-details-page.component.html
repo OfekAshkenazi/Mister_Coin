@@ -6,7 +6,6 @@
     <img class="back-btn" src="assets/imgs/back.png" (click)="onBack()" alt="" title="Back">
     <br><br>
 
-    <transfer-found ></transfer-found>
+    <transfer-found (updateMoves)="updateMoves()" [contact]="contact"></transfer-found>
 </article>
-
-<!-- (updateMoves)="updatemoves" [contact]="contact" -->
+<move-list [moves]="moves"></move-list>

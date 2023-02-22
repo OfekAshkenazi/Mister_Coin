@@ -1,1 +1,11 @@
-<p>statistic-page works!</p>
+<section class="statistic-page" *ngIf="prices$|async as prices">
+    <section class="main-charts">
+        <avg-chart [prices]="prices"></avg-chart>
+        <market-price-chart [prices]="prices"></market-price-chart>
+    </section>
+
+    <!-- <section> -->
+        <!-- <market-price-box-list [prices]="prices"></market-price-box-list> -->
+    <!-- </section> -->
+
+</section>

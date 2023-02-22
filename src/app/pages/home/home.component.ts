@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { bitcoinService } from 'src/app/services/bitcoin.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'Home',
@@ -16,19 +17,12 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) { }
 
+  bitCoinExgRate$!: Observable<string>
   user!: User
-  bitCoinExgRate!: number | any
-  logedInUser = ''
   async ngOnInit() {
-    this.user = this.userService.getUser()
+    this.user = this.userService.getLoggedinUser()
     try {
-      this.logedInUser = this.userService.getLoggedinUser()
-      console.log(this.logedInUser)
-      if (!this.logedInUser) {
-        this.router.navigateByUrl('/signup')
-      }
-
-      this.bitCoinExgRate = await this.bitcoinService.getRate()
+      this.bitCoinExgRate$ = this.bitcoinService.getRateStream()
     } catch (err) {
       console.log('Something went wrong')
     }

@@ -1,7 +1,10 @@
 <section class="transaction">
     <form (ngSubmit)="onSaveTransaction()">
-        <input type="number" [(ngModel)]="amount" name="amount" id="amount" >
-        <button>save</button>
+        <input type="number" [(ngModel)]="amount" name="amount" id="amount" max="{{user.balance}}">
+
+        <label>
+            <span style="transition-delay: 50ms;">Amount</span>
+        </label>
+        <button>Transfer</button>
     </form>
 </section>
-

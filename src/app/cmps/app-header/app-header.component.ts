@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppHeaderComponent {
 
+  navOpen: Boolean = false
+
+  openNav() {
+    this.navOpen?  this.navOpen = false : this.navOpen = true
+  }
+
 }

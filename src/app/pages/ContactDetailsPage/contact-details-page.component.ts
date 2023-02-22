@@ -29,6 +29,7 @@ export class ContactDetailsPageComponent implements OnInit, OnDestroy {
     this.subscription = this.route.data.subscribe(data => {
       this.contact = data['contact']
     })
+    this.updateMoves()
   }
 
   onBack() {
@@ -40,7 +41,7 @@ export class ContactDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   updateMoves() {
-    this.user = this.userService.getUser()
+    this.user = this.userService.getLoggedinUser()
     this.moves = this.user.moves.filter(move => move.toId === this.contact._id)
   }
 

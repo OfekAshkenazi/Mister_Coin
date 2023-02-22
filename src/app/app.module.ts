@@ -18,6 +18,11 @@ import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { TransferFoundComponent } from './cmps/transfer-found/transfer-found.component';
 import { MoveListComponent } from './cmps/move-list/move-list.component';
+import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
+import { MarketPriceChartComponent } from './cmps/market-price-chart/market-price-chart.component';
+import { AvgChartComponent } from './cmps/avg-chart/avg-chart.component';
+import { MarketPriceBoxListComponent } from './cmps/market-price-box-list/market-price-box-list.component';
+import { MarketPriceBoxPreviewComponent } from './cmps/market-price-box-preview/market-price-box-preview.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,11 @@ import { MoveListComponent } from './cmps/move-list/move-list.component';
     SignupPageComponent,
     TransferFoundComponent,
     MoveListComponent,
+    MovePreviewComponent,
+    MarketPriceChartComponent,
+    AvgChartComponent,
+    MarketPriceBoxListComponent,
+    MarketPriceBoxPreviewComponent,
   ],
   imports: [
     BrowserModule,

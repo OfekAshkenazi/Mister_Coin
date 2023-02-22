@@ -5,7 +5,6 @@ export class User {
     constructor(
         public fullname: string = '',
         public username: string = '',
-        public password: number | undefined,
         public balance: number = 100,
         public moves: Move[]
 

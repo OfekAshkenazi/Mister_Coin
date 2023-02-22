@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bitcoinService } from 'src/app/services/bitcoin.service';
+import { MarketPrice } from 'src/app/models/graph.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'statistic-page',
@@ -8,9 +10,15 @@ import { bitcoinService } from 'src/app/services/bitcoin.service';
 })
 export class StatisticPageComponent {
 
-  constructor(private bitcoinService: bitcoinService) { }
- 
+  constructor(
+    private bitcoinService: bitcoinService
+  ) { }
 
-  
+  prices$!: Observable<MarketPrice>
+
+  ngOnInit(): void {
+    this.prices$ = this.bitcoinService.getMarketPrice()
+  }
+
 
 }

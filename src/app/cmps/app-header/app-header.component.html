@@ -3,10 +3,14 @@
         <h1>MisterCoin</h1>
         <img src="assets/imgs/bitcoin.png" alt="">
     </div>
-
-    <div class="navigate-btn flex">
+    <div (click)="openNav()" class="menu-btn">☰</div>
+    <div  class="navigate-btn flex">
         <!-- <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a> -->
-        <a routerLink="/contact" routerLinkActive="active" >Contacts</a>
+        <a routerLink="/contact" routerLinkActive="active">Contacts</a>
+        <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+    </div>
+    <div *ngIf="navOpen === true"  class="navigate-btn-mobile flex">
+        <a routerLink="/contact" routerLinkActive="active">Contacts</a>
         <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
     </div>
 </header>

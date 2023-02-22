@@ -74,19 +74,13 @@ export class UserService {
         return user
     }
 
-    public getLoggedinUser() {
-        let user: null | string = sessionStorage.getItem('loogedInUser')
-        if (!user) return
-        let loggedinUser = JSON.parse(user);
-        return loggedinUser
-    }
 
-    public getUser(): User {
+    public getLoggedinUser(): User {
         return JSON.parse(sessionStorage.getItem(this.STORAGE_KEY_LOGGEDIN_USER) as string)
     }
 
     public addMove(contact: Contact, amount: number) {
-        const user = this.getUser()
+        const user = this.getLoggedinUser()
         const move: Move = {
             toId: contact._id,
             to: contact.name,
@@ -100,6 +94,14 @@ export class UserService {
         this.save(user)
     }
 
+    public getEmptyUser() {
+        return {
+            fullname: '',
+            username: '',
+            balance: 100,
+            moves: []
+        }
+    }
 }
 
 

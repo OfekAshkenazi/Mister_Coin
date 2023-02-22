@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { storageService } from '../services/async-storage.service'
-import { tap, Observable, of, lastValueFrom } from 'rxjs';
+import { tap, Observable, of, lastValueFrom, timer, switchMap } from 'rxjs';
 const DATA_KEY_PRICE = "DATA_DB_PRICE"
 const DATA_KEY_BLOCK = "DATA_DB_BLOCK"
 const DATA_KEY_CONFRIM_TRANSACTIONS = "DATA_DB_TRANSACTIONS"
@@ -30,11 +30,17 @@ export class bitcoinService {
     }
 
     private getResult(type: string, url: string) {
-        const res = storageService.oldGet(type)
-        if (res) return Promise.resolve(res)
-        return lastValueFrom(this.http.get<{ answer: string }>(url)
+        const result = storageService.oldGet(type)
+        if (result) return of(result)
+        return this.http.get<any>(url)
             .pipe(
                 tap(res => storageService.oldSave(type, res)),
-            ))
+            )
+    }
+
+    public getRateStream() {
+        return timer(0, 1000*60*8).pipe(
+            switchMap(() => this.getRate())
+        )
     }
 }

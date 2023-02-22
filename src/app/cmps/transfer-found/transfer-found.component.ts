@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/models/contact.model';
+import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,32 +12,26 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TransferFoundComponent implements OnInit {
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
 
-  
   @Input() contact!: Contact
-  newUser = this.userService.getLoggedinUser()
-  amount = 0
-  subscription!: Subscription
+  @Output() updateMoves = new EventEmitter()
+  amount!: number
+  user!: User
 
-
-  async ngOnInit() {
-    this.subscription = this.route.data.subscribe(data => {
-      this.contact = data['contact']
-    })
+  ngOnInit() {
+    this.user = this.userService.getLoggedinUser()
   }
 
   onSaveTransaction() {
-    let move = {
-      // toId: this.contact
-      // to: string,
-      // at: Date,
-      // amount: number
-    }
-    this.newUser.moves.push()
+    this.userService.addMove(this.contact, this.amount)
+    this.user = this.userService.getLoggedinUser()
+    this.amount = 0
+    this.updateMoves.emit()
   }
 
 }

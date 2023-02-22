@@ -1,0 +1,14 @@
+.move-preview {
+    display: flex;
+    gap: 10px;
+    background-color: aliceblue;
+    color: #5da1cc;
+    padding: 10px;
+    border-radius: 12px;
+
+    p {
+        font-weight: bold;
+        margin: 2px 0px;
+        font-family: sans-serif;
+    }
+}

@@ -1,6 +1,4 @@
 :host {
-    height: 100%;
-
     .home-page {
         position: relative;
         padding: 0;
@@ -8,19 +6,16 @@
         margin: 0;
 
         .hero {
-            img {
-                min-height: 90vh;
-                object-fit: cover;
-            }
+            min-height: calc(100vh - 15vh);
 
         }
 
         .user-article {
             position: absolute;
             display: grid;
-            top: 7%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 10%;
+            left: 45%;
+            transform: translate(-50%,-50%);
             gap: 2.5px;
             background-color: gold;
             padding: 10px;

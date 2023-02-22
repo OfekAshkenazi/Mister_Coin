@@ -9,6 +9,7 @@ import { ContactDetailsPageComponent } from './pages/ContactDetailsPage/contact-
 import { ContactResolverResolver } from './services/contact.resolver.resolver';
 import { ContactEditComponent } from './cmps/contact-edit/contact-edit.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -33,14 +34,13 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'signup',
+    component: SignupPageComponent
+  },
+  {
     path: '',
     component: HomeComponent,
-    children: [
-      {
-        path: 'signup',
-        component: SignupPageComponent
-      }
-    ]
+    canActivate: [AuthGuard], data: { isAuth: false }
   },
   {
     path: 'statistics',
