@@ -1,6 +1,7 @@
 # MisterCoin
 
 This app was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+
 in this app you can transfer bitcoins to your fake contacts, CRUDL them and get informtion about the current bitcoin value, and the market-price.
 [Take a look, it's on Github pages]( https://ofekashkenazi.github.io/Mister_coin/ "Github pages link")
 
