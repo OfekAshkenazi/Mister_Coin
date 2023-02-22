@@ -10,7 +10,7 @@
         <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
     </div>
     <div *ngIf="navOpen === true"  class="navigate-btn-mobile flex">
-        <a routerLink="/contact" routerLinkActive="active">Contacts</a>
-        <a routerLink="/statistics" routerLinkActive="active">Statistics</a>
+        <a (click)="openNav()" routerLink="/contact" routerLinkActive="active">Contacts</a>
+        <a (click)="openNav()" routerLink="/statistics" routerLinkActive="active">Statistics</a>
     </div>
 </header>
