@@ -27,7 +27,12 @@ Clone the project or dowload the files on top.
 ```
 git clone https://github.com/OfekAshkenazi/Mister_coin.git
 ```
-Open the terminal and enter the following line to run it locally on your computer:
+Open the terminal at right folder and enter the following line to run it locally on your computer:
+
+```
+npm i
+```
+
 ```
 npm start
 ```
