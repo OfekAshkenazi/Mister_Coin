@@ -1,27 +1,34 @@
 # MisterCoin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+This app was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+in this app you can transfer bitcoins to your fake contacts, CRUDL them and get informtion about the current bitcoin value, and the market-price.
+[Take a look, it's on Github pages]( https://ofekashkenazi.github.io/Mister_coin/ "Github pages link")
 
-## Development server
+#### Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- angular chart.js
+- angular-Router
+- rxjs
+- Sass
+- angular 15.1.6 CLI & Github pages
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+Please feel free to take a look of the different components of the website - [Showcase](#showcase)
 
-## Build
+- Simple authentication - session storage.
+- HTTP request for Market price, bitcoin value and more.
+- CRUDL of contacts.
+- Responsive.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Getting started
+Clone the project or dowload the files on top.
+```
+git clone https://github.com/OfekAshkenazi/Mister_coin.git
+```
+Open the terminal and enter the following line to run it locally on your computer:
+```
+npm start
+```
+Runs the app in the development mode.
+Open http://localhost:4200 to view it in the browser.
